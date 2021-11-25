@@ -8,6 +8,7 @@ filename = "cheatsheet.txt"
 
 ret_type_pattern = r"^([a-zA-Z0-9]{2,8})(\s\*+)?"
 fn_name_pattern  = r"[A-Z][a-zA-Z]+\(.+\);"
+fn_name_pattern  = r"[A-Z][a-zA-Z0-9]+\(.+\);"
 description_pattern = r"(\/\/\s)(.+)"
 
 details = []
