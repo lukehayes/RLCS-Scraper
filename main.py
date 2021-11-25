@@ -7,7 +7,6 @@ filename = "cheatsheet.txt"
     # soup = BeautifulSoup(fp, 'html.parser')
 
 ret_type_pattern = r"^([a-zA-Z0-9]{2,8})(\s\*+)?"
-fn_name_pattern  = r"[A-Z][a-zA-Z]+\(.+\);"
 fn_name_pattern  = r"[A-Z][a-zA-Z0-9]+\(.+\);"
 description_pattern = r"(\/\/\s)(.+)"
 
@@ -35,5 +34,8 @@ with open(filename, "r") as fh:
 
 for d in details:
     if d.return_type != None:
-        print(f"{d.return_type} {d.fn_name} {d.description}")
+        print(f"{d.return_type} {d.fn_name}")
+        print("\t |")
+        print(f"\t --> {d.description}")
+        print("")
 
