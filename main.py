@@ -15,17 +15,20 @@ details = []
 with open(filename, "r") as fh:
     lines = fh.readlines()
     for line in lines:
-        type_match = re.search(ret_type_pattern, line)
-        # fn_name_match = re.search(fn_name_pattern, line)
+        type_match = [ list(l) for l in re.findall(ret_type_pattern, line) ]
+        fn_name_match = re.search(fn_name_pattern, line)
         description_match = [list(l) for l in list(re.findall(description_pattern, line))]
 
+        fd = FuncDetail()
+
         if description_match:
-            fd = FuncDetail()
             fd.description = description_match[0][1]
 
-            details.append(fd)
+        if type_match:
+            fd.return_type = type_match[0][0]
 
+        details.append(fd)
 
-# for d in details:
-    # print(d.description)
+for d in details:
+    print(f"{d.return_type} {d.description}")
 
