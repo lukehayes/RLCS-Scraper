@@ -1,18 +1,16 @@
-import click
+import argparse
 
-@click.command()
-@click.option("--count", default=1, help="Number of greetings.")
-@click.option("--name", prompt="Your name", help="The person to greet.")
-def hello(count, name):
-    """Simple program that greets NAME for a total of COUNT times."""
-    for _ in range(count):
-        click.echo(f"Hello, {name}!")
+parser = argparse.ArgumentParser(description="Print the Raylib documentation in the command line.")
 
-if __name__ == '__main__':
-    hello()
+parser.add_argument('--sum', dest='accumulate', action='store_const',
+                    const=sum, default=max,
+                    help='sum the integers (default: find the max)')
 
-# class CLI(object):
-    # """A CLI GUI using Click library"""
-    # def __init__(self):
-        # pass
+parser.add_argument('--search',
+                    help='Search for a specific function name.')
 
+
+args = parser.parse_args()
+
+if args.search:
+    print("Searching")
