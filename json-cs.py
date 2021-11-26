@@ -1,5 +1,6 @@
 import json
 from RLCS.func_detail import FuncDetail
+from RLCS.color import Color
 
 with open("cheatsheet.json") as fh:
     data = json.load(fh)
@@ -7,7 +8,7 @@ with open("cheatsheet.json") as fh:
 cs_json = data["data"]
 
 for line in cs_json:
-    print(f"{line['return_type']} {line['function_name']}")
-    print(f"\t {line['description']}")
-    print(f"\n")
+    Color.cyan(line['return_type'])
+    Color.green(line['function_name'])
+    Color.end()
 
